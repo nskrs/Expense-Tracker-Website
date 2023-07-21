@@ -8,7 +8,7 @@ function login(e){
     }
 
     console.log(loginDetail);
-axios.post('http://localhost:3000/user/login', loginDetails).then(response =>{
+axios.post('http://localhost:3000/user/login', loginDetail).then(response =>{
   alert(response.data.message);
 
 
