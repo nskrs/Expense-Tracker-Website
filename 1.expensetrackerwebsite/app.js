@@ -21,7 +21,8 @@ app.use(express.json());  //this is for handling jsons
 app.use('/user', userRoutes);
 app.use('/expense', expenseRoutes);
 
-
+User.hasMany(Expense);
+Expense.belongsTo(User);
 
 sequelize.sync()
     .then(() => {
