@@ -66,4 +66,3 @@ function removeExpenseFromScreen(expenseid) {
    parentNode.removeChild(childNodeToBeDeleted);
  }
 }
-

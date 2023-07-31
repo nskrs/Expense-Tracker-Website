@@ -1,6 +1,5 @@
 const Expense = require('../model/expenses')
 
-
 const addexpense = (req, res) => {
     const { expenseamount, description, category } = req.body;
 
