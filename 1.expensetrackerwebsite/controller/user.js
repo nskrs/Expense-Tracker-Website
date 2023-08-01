@@ -67,6 +67,7 @@ const login = async (req, res) => { // login fn receives request and response as
            if(err){
             throw new Error('Something went wrong')
            }
+           
             if(result === true){
                 return res.status(200).json({success: true, message: "User logged in successfully", token: generateAccessToken(user[0].id, user[0].name)});// json object
             }
