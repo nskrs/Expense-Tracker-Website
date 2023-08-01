@@ -1,3 +1,4 @@
+//totalExpenses
 function addNewExpense(e){
     e.preventDefault();
 
@@ -15,16 +16,15 @@ function addNewExpense(e){
     }).catch(err => showError(err))
 }
 
-function showPremiumuserMessage(){
-    document.getElementById('rzp-button1').style.visibility = 'hidden'
-    document.getElementById('message').innerHTML ='You are premium user'
+function showPremiumuserMessage() {
+    document.getElementById('rzp-button1').style.visibility = "hidden"
+    document.getElementById('message').innerHTML = "You are a premium user "
 }
 
-function parseJwt(token){
-    var base64Url = token.split('.') [1];
-    var base64 = base64Url.replace(/-/g,'+').replace(/_/g,'/');
+function parseJwt (token) {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
 
- 
     var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
         return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
     }).join(''));
@@ -33,8 +33,7 @@ function parseJwt(token){
 }
 
 window.addEventListener('DOMContentLoaded', ()=> {
-    
-    const token = localStorage.getItem('token');
+    const token  = localStorage.getItem('token');
     const decodeToken = parseJwt(token);
 
     console.log(decodeToken);
@@ -45,20 +44,15 @@ window.addEventListener('DOMContentLoaded', ()=> {
         showLeaderboard()
     }
 
-    axios.get('http://localhost:3000/expense/getexpenses', {headers: {"Authorization": token}})
+    axios.get('http://localhost:3000/expense/getexpenses', { headers: {"Authorization" : token} })
     .then(response => {
-        console.log(response)
             response.data.expenses.forEach(expense => {
-           
                 addNewExpensetoUI(expense);
             })
-    })
-    .catch(err => {
-     
+    }).catch(err => {
         showError(err)
     })
 });
-
 
 // function addNewExpensetoUI(expense){
 //     const parentElement = document.getElementById('listOfExpenses');
@@ -93,7 +87,7 @@ function addNewExpensetoUI(expense) {
 function deleteExpense(e, expenseid) {
     const token = localStorage.getItem('token')
     axios.delete(`http://localhost:3000/expense/deleteexpense/${expenseid}`, {headers: {"Authorization": token}})
-    .then(() => {
+    .then((response) => {
             removeExpensefromUI(expenseid);
     }).catch((err => {
         showError(err);
@@ -117,7 +111,8 @@ function showLeaderboard(){
         var leaderboardElem = document.getElementById('leaderboard')
         leaderboardElem.innerHTML += '<h1> Leader Board </<h1>'
         userLeaderBoardArray.data.forEach((userDetails) => {
-            leaderboardElem.innerHTML += `<li>Name - ${userDetails.name} Total Expense - ${userDetails.total_cost || 0} </li>`
+          //leaderboardElem.innerHTML += `<li>Name - ${userDetails.name} Total Expense - ${userDetails.total_cost || 0} </li>`
+           leaderboardElem.innerHTML += `<li>Name - ${userDetails.name} Total Expense - ${userDetails.totalExpenses || 0} </li>`
         })
     }
 
@@ -139,6 +134,7 @@ document.getElementById('rzp-button1').onclick = async function (e) {
     {
      "key": response.data.key_id, // Enter the Key ID generated from the Dashboard
      "order_id": response.data.order.id,// For one time payment
+
      // This handler function will handle the success payment
      "handler": async function (response) {
         const res = await axios.post('http://localhost:3000/purchase/updatetransactionstatus',{
@@ -147,6 +143,7 @@ document.getElementById('rzp-button1').onclick = async function (e) {
          }, { headers: {"Authorization" : token} })
         
         console.log(res)
+
          alert('You are a Premium User Now')
          document.getElementById('rzp-button1').style.visibility = "hidden"
          document.getElementById('message').innerHTML = "You are a premium user "
