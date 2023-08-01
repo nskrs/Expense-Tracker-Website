@@ -51,7 +51,7 @@ function addNewExpensetoUI(expense){
 function deleteExpense(e, expenseid) {
     const token = localStorage.getItem('token')
     axios.delete(`http://localhost:3000/expense/deleteexpense/${expenseid}`, {headers: {"Authorization": token}})
-    .then((response) => {
+    .then(() => {
             removeExpensefromUI(expenseid);
     }).catch((err => {
         showError(err);
