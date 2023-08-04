@@ -16,7 +16,12 @@ function login(e) { // handles form submission event e
         localStorage.setItem('token', response.data.token);
         window.location.href = "../ExpenseTracker/expense.html"
     }).catch(err => {
+        alert("your email or password is wrong")
         console.log(JSON.stringify(err)); // converts error objects to JSON string
         document.body.innerHTML += `<div style="color : red;"> ${err.message}</div>`;
     })
+}
+
+function forgotpassword() {
+    window.location.href = "../ForgotPassword/forgotpassword.html"
 }

@@ -16,6 +16,7 @@ async function signup(e){   // async keyword allows the use of await keyword ins
         // send POST request to "ht..." endpoint with signupDetails object as the request body. await 
         // keyword is used to wait for the response to be received before proceeding
         if(response.status === 201){// indicate successful signup. window.location assumes that the user is in web environment
+            alert("SignUp successful now Login");
             window.location.href = "../Login/login.html"; // change the page on successful login
         }else{
             throw new Error('Failed to login')
