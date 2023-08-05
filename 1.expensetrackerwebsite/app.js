@@ -7,6 +7,7 @@ const sequelize = require('./util/database');
 const User = require('./model/user');
 const Expense = require('./model/expenses');
 const Order = require('./model/order')
+const Forgotpassword = require('./model/forgotpassword');
 
 const expenseRoutes = require('./routes/expense');
 const userRoutes = require('./routes/user')
@@ -38,7 +39,7 @@ Expense.belongsTo(User);
 User.hasMany(Order);
 Expense.belongsTo(User);
 
-User.hasMany(Forgotpassword);
+User.hasMany(Forgotpassword );
 Forgotpassword.belongsTo(User);
 
 sequelize.sync()

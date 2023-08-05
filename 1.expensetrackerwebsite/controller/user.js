@@ -65,11 +65,11 @@ const login = async (req, res) => { // login fn receives request and response as
             // function that takes an error(err) and result as parameter
            bcrypt.compare(password, user[0].password, (err, result) => {
            if(err){
-            throw new Error('Something went wrong')
+            throw new Error('Sometng went wrong')
            }
-           
+
             if(result === true){
-                return res.status(200).json({success: true, message: "User logged in successfully", token: generateAccessToken(user[0].id, user[0].name)});// json object
+                return res.status(200).json({success: true, message: "User logged in successfully", token: generateAccessToken(user[0].id, user[0].name, user[0].ispremiumuser)})
             }
             else{
             return res.status(400).json({success: false, message: 'Password is incorrect'})

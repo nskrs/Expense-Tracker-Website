@@ -1,4 +1,4 @@
-const User = require('../model/users');
+const User = require('../model/user');
 const Expense = require('../model/expenses');
 const sequelize = require('../util/database');
 const e = require('express');

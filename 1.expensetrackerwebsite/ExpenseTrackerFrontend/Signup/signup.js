@@ -26,3 +26,8 @@ async function signup(e){   // async keyword allows the use of await keyword ins
         document.body.innerHTML += `<div style = "color: red">${err}</div>`
     }
 }
+
+
+
+
+

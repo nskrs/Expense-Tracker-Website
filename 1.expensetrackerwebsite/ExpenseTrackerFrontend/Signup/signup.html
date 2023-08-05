@@ -10,15 +10,15 @@
     h3{
       color:brown;
     }
-     /* html,body {
-      background-image: url("https://tse4.mm.bing.net/th?id=OIP.f66kbA8yVCc-2A9Wr9dLaQHaGi&pid=Api&P=0&h=180");
+     html,body {
+      background-color:black;
+    }
+    .container{
+      background-image: url("https://tse3.mm.bing.net/th?id=OIP.xNzaEIPlB46E75oIpWjJFQHaEb&pid=Api&P=0&h=180");
       height: 100%;
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-    } */
-    .container{
-      background-color:black;
     }
   </style>
 </head>
@@ -28,11 +28,13 @@
     <h3 style="text-align:center" >SIGN UP PAGE</h3>
     <form onsubmit="signup(event)">
       <div class="mb-2 mt-2" id="list of items">
-        <!-- <label class="form-label">Enter the Name:</label><br> -->
+        <label class="form-label">Enter the Name:</label><br>
         <input type="text" class="form-control" id="name" placeholder="Enter the name" required><br>
-        <!-- <label class="form-label">Enter your Email:</label><br> -->
+
+        <label class="form-label">Enter your Email:</label><br>
         <input type="text" class="form-control" id="email" placeholder="Enter the email " required><br>
-        <!-- <label>Enter your password </label><br> -->
+
+        <label>Enter your password </label><br>
         <input type="password" class="form-control" id="password"  placeholder="Enter the password" required><br>
         
         <button class="form-control" style="background-color:DodgerBlue;">Sign up</button><br>
@@ -42,8 +44,10 @@
     <a href="../Login/login.html" style="color: white;">Existing User - Login</a>
   </div>
 
+  <!-- <a href="../Login/login.html" style="color:darkgreen">Existing User - Login</a>  -->
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js" integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js" integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="./signup.js"></script>
 </body>
 
